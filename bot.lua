@@ -7,8 +7,10 @@ is_loading = true
 ls_debug = false
 all_peds = {}
 handle_ptr = memory.alloc(13*8)
---- updater by king
-async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/bot.lua", function(output)
+localVer = 1.0
+
+--- updater 
+async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
     currentVer = tonumber(output)
     response = true
     if localVer ~= currentVer then
