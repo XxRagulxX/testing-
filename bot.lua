@@ -9,7 +9,7 @@ all_peds = {}
 handle_ptr = memory.alloc(13*8)
 localVer = 1.0
 
---- updater 
+--- updater by king
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
     currentVer = tonumber(output)
     response = true
