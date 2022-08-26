@@ -7,7 +7,7 @@ local response = false
 localVer = 1.4
 
 --- Github Integration
-async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
+async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version.lua", function(output)
     currentVer = tonumber(output)
     response = true
     if localVer ~= currentVer then
