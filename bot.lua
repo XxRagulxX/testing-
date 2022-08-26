@@ -7,7 +7,6 @@ local response = false
 localVer = 1.4
 
 --- Github Integration
-util.toast(".")
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
     currentVer = tonumber(output)
     response = true
