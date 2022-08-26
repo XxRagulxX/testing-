@@ -1,8 +1,4 @@
 util.require_natives("King")
-gta_labels = require('all_labels_bot')
-all_labels = gta_labels.all_labels
-sexts = gta_labels.sexts
-coded_for_gtao_version = 1.61
 is_loading = true
 ls_debug = false
 all_peds = {}
@@ -10,12 +6,12 @@ handle_ptr = memory.alloc(13*8)
 local response = false
 localVer = 1.1
 
---- updater by king
+--- Github Integration
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
     currentVer = tonumber(output)
     response = true
     if localVer ~= currentVer then
-        util.toast("New JinxScript version is available, update the lua to get the newest version.")
+        util.toast("Auto NPC Kill version is available, update the lua to get the newest version.")
         menu.action(menu.my_root(), "Update Lua", {}, "", function()
             async_http.init('raw.githubusercontent.com','/XxRagulxX/testing-/main/bot.lua',function(a)
                 local err = select(2,load(a))
@@ -25,7 +21,7 @@ async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version",
                 local f = io.open(filesystem.scripts_dir()..SCRIPT_RELPATH, "wb")
                 f:write(a)
                 f:close()
-                util.toast("Successfully updated JinxScript, please restart the script :)")
+                util.toast("Successfully updated Auto NPC Kill, please restart the script :)")
                 util.stop_script()
             end)
             async_http.dispatch()
