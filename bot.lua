@@ -4,7 +4,7 @@ ls_debug = false
 all_peds = {}
 handle_ptr = memory.alloc(13*8)
 local response = false
-localVer = 1.4
+localVer = 1.5
 
 --- Github Integration
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version.lua", function(output)
