@@ -4,7 +4,7 @@ ls_debug = false
 all_peds = {}
 handle_ptr = memory.alloc(13*8)
 local response = false
-localVer = 1.2
+localVer = 1.3
 
 --- Github Integration
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/version", function(output)
@@ -32,7 +32,7 @@ async_http.dispatch()
 repeat 
     util.yield()
 until response
-
+--end
 -- debug mode is on
 function ls_log(content)
     if ls_debug then
