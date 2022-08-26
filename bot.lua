@@ -7,7 +7,7 @@ is_loading = true
 ls_debug = false
 all_peds = {}
 handle_ptr = memory.alloc(13*8)
---- updater
+--- updater by king
 async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/bot.lua", function(output)
     currentVer = tonumber(output)
     response = true
