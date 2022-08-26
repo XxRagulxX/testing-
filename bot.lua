@@ -7,6 +7,32 @@ is_loading = true
 ls_debug = false
 all_peds = {}
 handle_ptr = memory.alloc(13*8)
+--- updater
+async_http.init("raw.githubusercontent.com", "/XxRagulxX/testing-/main/bot.lua", function(output)
+    currentVer = tonumber(output)
+    response = true
+    if localVer ~= currentVer then
+        util.toast("New JinxScript version is available, update the lua to get the newest version.")
+        menu.action(menu.my_root(), "Update Lua", {}, "", function()
+            async_http.init('raw.githubusercontent.com','/XxRagulxX/testing-/main/bot.lua',function(a)
+                local err = select(2,load(a))
+                if err then
+                    util.toast("Script failed to download. Please try again later. If this continues to happen then manually update via github.")
+                return end
+                local f = io.open(filesystem.scripts_dir()..SCRIPT_RELPATH, "wb")
+                f:write(a)
+                f:close()
+                util.toast("Successfully updated JinxScript, please restart the script :)")
+                util.stop_script()
+            end)
+            async_http.dispatch()
+        end)
+    end
+end, function() response = true end)
+async_http.dispatch()
+repeat 
+    util.yield()
+until response
 
 -- debug mode is on
 function ls_log(content)
